@@ -1,0 +1,674 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #0b1120;
+  color: #f8fafc;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 250px;
+  background: #111827;
+  border-right: 1px solid #263247;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #60a5fa;
+  margin-bottom: 55px;
+}
+
+.brand h2 {
+  color: white;
+  font-size: 21px;
+}
+
+.menu-label {
+  color: #64748b;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+}
+
+.menu-item {
+  padding: 14px;
+  color: #94a3b8;
+  border-radius: 9px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.menu-item.active {
+  background: #1e3a5f;
+  color: #60a5fa;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* Status */
+
+.online-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Main content */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 90px;
+  padding: 20px 40px;
+  border-bottom: 1px solid #263247;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.topbar p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.agent-status {
+  color: #4ade80;
+  background: #142d25;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* Chat section */
+
+.chat-section {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 40px 35px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.chat-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.bot-icon {
+  width: 65px;
+  height: 65px;
+  background: #1e3a5f;
+  color: #60a5fa;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+}
+
+.chat-heading h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #f8fafc;
+}
+
+.chat-heading p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* Messages */
+
+.messages {
+  flex: 1;
+  min-height: 260px;
+  max-height: 480px;
+  overflow-y: auto;
+  padding: 15px 5px;
+}
+
+.welcome-message {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 55px;
+}
+
+.welcome-message svg {
+  color: #60a5fa;
+  margin-bottom: 12px;
+}
+
+.welcome-message h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.welcome-message p {
+  max-width: 450px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.message-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+  align-items: flex-start;
+}
+
+.message-row.user {
+  flex-direction: row-reverse;
+}
+
+.message-icon {
+  min-width: 35px;
+  height: 35px;
+  background: #1e3a5f;
+  color: #60a5fa;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.message-bubble {
+  max-width: 75%;
+  padding: 14px 17px;
+  border-radius: 12px;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.user .message-bubble {
+  background: #1d4ed8;
+  color: white;
+}
+
+/* Input */
+
+.chat-input {
+  display: flex;
+  gap: 12px;
+  background: #172033;
+  padding: 12px;
+  border: 1px solid #334155;
+  border-radius: 14px;
+}
+
+.chat-input input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.chat-input button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 9px;
+  background: #2563eb;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.chat-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.footer-note {
+  text-align: center;
+  color: #64748b;
+  font-size: 11px;
+  margin-top: 18px;
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+
+  .topbar {
+    padding: 15px 20px;
+  }
+
+  .chat-section {
+    padding: 25px 15px;
+  }
+
+  .chat-heading h2 {
+    font-size: 21px;
+  }
+
+  .message-bubble {
+    max-width: 85%;
+  }
+}
+
+
+
+/* Lead Management Dashboard */
+
+.lead-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.lead-stat-card {
+  background: #172033;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 22px;
+  color: #60a5fa;
+}
+
+.lead-stat-card p {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.lead-stat-card h2 {
+  color: white;
+  font-size: 28px;
+  margin-top: 7px;
+}
+
+.leads-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0 20px;
+}
+
+.leads-header h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.leads-header p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.leads-header button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 11px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.lead-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.lead-card {
+  background: #172033;
+  border: 1px solid #334155;
+  border-radius: 13px;
+  padding: 20px;
+}
+
+.lead-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.lead-card-header h3 {
+  color: white;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.lead-card-header p {
+  color: #94a3b8;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.lead-status {
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.lead-status.qualified {
+  color: #4ade80;
+  background: #142d25;
+}
+
+.lead-status.new {
+  color: #60a5fa;
+  background: #1e3a5f;
+}
+
+.lead-status.not-qualified {
+  color: #fca5a5;
+  background: #451a1a;
+}
+
+.lead-details {
+  border-top: 1px solid #334155;
+  padding-top: 15px;
+}
+
+.lead-details p {
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+
+.lead-details strong {
+  color: white;
+}
+
+.lead-message {
+  text-align: center;
+  color: #94a3b8;
+  padding: 35px 15px;
+  background: #172033;
+  border-radius: 12px;
+}
+
+.lead-message.error {
+  color: #fca5a5;
+}
+
+@media (max-width: 700px) {
+  .lead-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .leads-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .lead-card-header {
+    flex-direction: column;
+  }
+}
+
+
+/* Voice Interaction */
+
+.voice-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 8px 13px;
+  background: #172033;
+  color: #60a5fa;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mic-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #172033;
+  color: #60a5fa;
+  cursor: pointer;
+}
+
+.mic-button.listening {
+  background: #7f1d1d;
+  color: #ffffff;
+  border-color: #ef4444;
+  animation: micPulse 1.2s infinite;
+}
+
+.mic-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes micPulse {
+  50% {
+    box-shadow: 0 0 0 7px rgba(239, 68, 68, 0.15);
+  }
+}
+
+.replay-voice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 10px;
+  border: 1px solid #334155;
+  border-radius: 7px;
+  background: transparent;
+  color: #60a5fa;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Appointment Management */
+
+.appointment-form-card {
+  background: #111827;
+  border: 1px solid #263449;
+  border-radius: 14px;
+  padding: 22px;
+  margin: 20px 0;
+}
+
+.appointment-form-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.appointment-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.appointment-form-grid input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  background: #172033;
+  color: #fff;
+  outline: none;
+}
+
+.appointment-form-grid input:focus {
+  border-color: #60a5fa;
+}
+
+.appointment-form button,
+.appointments-header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.appointment-form button {
+  align-self: flex-start;
+}
+
+.appointment-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.appointments-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 26px 0 16px;
+}
+
+.appointments-header p {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.appointment-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.appointment-card {
+  background: #111827;
+  border: 1px solid #263449;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.appointment-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.appointment-card-header h3 {
+  margin-bottom: 5px;
+}
+
+.appointment-card-header p,
+.appointment-details {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.appointment-status {
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: #164e63;
+  color: #67e8f9;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.appointment-status.completed {
+  background: #14532d;
+  color: #86efac;
+}
+
+.appointment-status.cancelled {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+.appointment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.appointment-details p {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.appointment-success {
+  color: #4ade80;
+  margin-top: 12px;
+}
+
+.appointment-error {
+  color: #f87171;
+  margin-top: 12px;
+}
+
+@media (max-width: 700px) {
+  .appointment-form-grid,
+  .appointment-list {
+    grid-template-columns: 1fr;
+  }
+
+  .appointments-header {
+    align-items: flex-start;
+  }
+}
